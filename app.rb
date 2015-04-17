@@ -77,12 +77,12 @@ end
 
 post '/api/users/:user_id/chirps' do
     content_type :json
-    puts "_____________________________"
-    id = params[:user_id]
-    user = User.find(id)
-    chirp = Chirp.create(params[:chirp])  #what, #name
-    user.chirps << chirp
-    chirp.to_json
+    #puts "_____________________________"
+    #id = params[:user_id]
+    #user = User.find(id)
+    #chirp = Chirp.create(params[:chirp])  #what, #name
+    #user.chirps << chirp
+    #chirp.to_json
 end
 
 put '/api/users/:user_id/chirps/:id' do
