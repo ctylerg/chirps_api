@@ -77,12 +77,18 @@ end
 
 post '/api/users/:user_id/chirps' do
     content_type :json
-    puts "_____________________________"
-    id = params[:user_id]
-    user = User.find(id)
-    chirp = Chirp.create(params[:chirp])  #what, #name
-    user.chirps << chirp
-    chirp.to_json
+  #  puts "_____________________________"
+    #id = params[:user_id]
+    #user = User.find(id)
+    user = User.find(params[:users_id].to_i)
+    user.chirps.create(params[:chirp]).to_json
+    # active record being awesome
+    # accepts a hash/dictionary/etc
+    # and binds values
+    # {users_id: params[], what: params[], }
+    #chirp = Chirp.create({users_id: params[:chirp]})  #what, #name
+  #  user.chirps << chirp
+  #  chirp.to_json
 end
 
 put '/api/users/:user_id/chirps/:id' do
